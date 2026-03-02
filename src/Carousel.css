@@ -1,0 +1,114 @@
+/* Container & Utilities */
+.carousel-main { width: 100%; overflow: hidden; position: relative; }
+
+/* SERVICES SPECIFIC STYLES (The floating look) */
+.services-section-wrapper {
+  padding: 40px 20px;
+  background: #fdfdfd;
+}
+
+.services-carousel-window {
+  overflow: hidden;
+  width: 100%;
+}
+
+.services-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-card-item {
+  min-width: 33.333%; /* 3 items on desktop */
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.service-image-container {
+  position: relative;
+  padding-bottom: 50px; /* Space for floating card to overlap */
+}
+
+.service-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+/* THE FLOATING BOX */
+.service-floating-card {
+  position: absolute;
+  bottom: 10px; /* Pulls it up into the image area */
+  left: 20px;
+  right: 20px;
+  background: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  z-index: 10;
+  min-height: 80px;
+}
+
+.service-card-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f7dc44;
+  line-height: 1.2;
+}
+
+.service-arrow-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f7f8fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-icon {
+  color: #ff3b30; /* Red arrow */
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* RED DASHED PAGINATION */
+.dashed-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dash {
+  width: 16px;
+  height: 4px;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dash.active {
+  background: #ff3b30; /* Red active dash */
+  width: 28px;
+}
+
+/* HERO SPECIFIC STYLES (Minimal) */
+.hero-container { position: relative; height: 80vh; }
+.carousel-slide {
+  position: absolute; inset: 0; opacity: 0; transition: opacity 1s;
+  background-size: cover; background-position: center;
+}
+.carousel-slide.active { opacity: 1; }
+.carousel-overlay {
+  background: rgba(0,0,0,0.3); height: 100%;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  color: white; text-align: center;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .service-card-item { min-width: 100%; }
+}
