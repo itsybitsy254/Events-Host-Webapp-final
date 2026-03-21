@@ -20,23 +20,37 @@ const Carousel = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = type === "hero" ? heroImages : serviceImages;
 
-  // Responsive items to show (1 on mobile, 3 on desktop)
   const itemsToShow = type === "hero" ? 1 : 3;
 
   useEffect(() => {
-    if (!autoSlide || items.length <= itemsToShow) return;
+    // Basic safety check for "about" type which doesn't use items array the same way
+    const length = type === "about" ? images.length : items.length;
+    if (!autoSlide || length === 0) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => {
-        if (type === "hero") return (prev + 1) % items.length;
-        return prev + 1 > items.length - itemsToShow ? 0 : prev + 1;
+        if (type === "hero" || type === "about") return (prev + 1) % length;
+        return prev + 1 > length - itemsToShow ? 0 : prev + 1;
       });
     }, interval);
 
     return () => clearInterval(timer);
-  }, [items.length, autoSlide, interval, type, itemsToShow]);
+  }, [items.length, images.length, autoSlide, interval, type, itemsToShow]);
 
-  if (!items.length) return null;
+  // Renders the overlapping circles for the "About" section
+  const renderAboutCircles = () => (
+    <div className="about-circles-container">
+      <div className="circle-large">
+        <img src={images[currentIndex]} alt="Event Main" className="fade-in" key={`main-${currentIndex}`} />
+      </div>
+      <div className="circle-small-overlay">
+        {/* Shows the next image in the array for variety */}
+        <img src={images[(currentIndex + 1) % images.length]} alt="Event Sub" className="fade-in" key={`sub-${currentIndex}`} />
+      </div>
+    </div>
+  );
+
+  if (type !== "about" && !items.length) return null;
 
   /* ================= HERO SLIDES ================= */
   const renderHeroSlides = () => (
@@ -63,7 +77,7 @@ const Carousel = ({
     </div>
   );
 
-  /* ================= SERVICES SLIDES (THE NEW LOOK) ================= */
+  /* ================= SERVICES SLIDES ================= */
   const renderServiceSlides = () => (
     <div className="services-section-wrapper">
       <div className="services-carousel-window">
@@ -86,8 +100,6 @@ const Carousel = ({
           ))}
         </div>
       </div>
-
-      {/* Dashed Pagination */}
       <div className="dashed-pagination">
         {items.map((_, index) => (
           <span
@@ -102,7 +114,7 @@ const Carousel = ({
 
   return (
     <div className={`carousel-main ${type}`}>
-      {type === "hero" ? renderHeroSlides() : renderServiceSlides()}
+      {type === "hero" ? renderHeroSlides() : type === "about" ? renderAboutCircles() : renderServiceSlides()}
     </div>
   );
 };

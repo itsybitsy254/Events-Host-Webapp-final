@@ -851,6 +851,22 @@ body:not(.no-js) .carousel.hero .carousel-slide {
   padding: 3rem 0;
   border-top: 4px solid var(--color-primary);
 }
+.welcome-image .small-circle {
+  width: 180px; 
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  bottom: -20px; 
+  
+  /* CHANGE THIS LINE */
+  right: -20px;  /* Moves it to the right side */
+  left: auto;    /* Clears the previous left setting */
+  
+  border: 6px solid #f4f4f4;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.18);
+  z-index: 2;
+}
 .welcome-text { max-width: 850px; margin: auto; font-size: 1.15rem; line-height: 1.8; }
 .carousel.services { height: 50vh; }
 .carousel.services h3 { 

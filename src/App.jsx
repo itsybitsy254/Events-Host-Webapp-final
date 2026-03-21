@@ -37,7 +37,7 @@ const heroSlides = [
   { title: "Tents & Bouncing Castles for Hire", quote:"High-quality tents and safe, fun bouncing castles that transform any space into a comfortable and exciting venue for guests of all ages."}
 ];
 
-const welcomeText = `At Jojo Lux Events, we specialize in transforming every occasion into a spectacular, unforgettable experience that reflects your unique vision and style. Whether it’s an elegant baby shower, a colorful kids’ party, a milestone graduation, a sophisticated adult celebration, a corporate gathering, or a beautifully styled outdoor picnic, our team approaches every event with creativity, precision, and care.  We believe that the smallest details make the biggest impact, which is why we thoughtfully design every element—from décor and entertainment to layouts, ambiance, and guest experience.  Our experienced professionals work closely with you from concept to execution, ensuring seamless coordination, stress-free planning, and flawless delivery on the day of your event.  Driven by passion, professionalism, and a commitment to excellence, we go beyond expectations to create moments that are not only visually stunning but emotionally memorable. With Elite Moments Events, you’re not just hosting an event—you’re creating lasting memories that you and your guests will cherish long after the celebration ends.`;
+const welcomeText = `At Jojo Bouncing Castles For Hire Nairobi, we specialize in transforming every occasion into a spectacular, unforgettable experience that reflects your unique vision and style. Whether it’s an elegant baby shower, a colorful kids’ party, a milestone graduation, a sophisticated adult celebration, a corporate gathering, or a beautifully styled outdoor picnic, our team approaches every event with creativity, precision, and care.  We believe that the smallest details make the biggest impact, which is why we thoughtfully design every element—from décor and entertainment to layouts, ambiance, and guest experience.  Our experienced professionals work closely with you from concept to execution, ensuring seamless coordination, stress-free planning, and flawless delivery on the day of your event.  Driven by passion, professionalism, and a commitment to excellence, we go beyond expectations to create moments that are not only visually stunning but emotionally memorable. With Elite Moments Events, you’re not just hosting an event—you’re creating lasting memories that you and your guests will cherish long after the celebration ends.`;
 
 const balloonImages = [
   "/image/img7.jpeg", "/image/img8.jpeg", "/image/img9.jpeg",
@@ -143,17 +143,15 @@ const App = () => {
   <div className="circle-container">
 
     <div className="circle-images">
-      <div className="circle-large">
-        <img src={balloonImages[0]} alt="Event decor" />
-      </div>
-
-      <div className="circle-small">
-        <img src={balloonImages[1]} alt="Event setup" />
-      </div>
+      {/* Using the Carousel component with type "about".
+          This will now cycle through your balloonImages array 
+          automatically in the overlapping circle format.
+      */}
+      <Carousel type="about" autoSlide={true} interval={5000} />
     </div>
 
     <div className="circle-text">
-      <h2>Welcome to Jojo Lux Events</h2>
+      <h2>Welcome to Jojo Bouncing Castles For Hire Nairobi</h2>
       <p>{welcomeText}</p>
     </div>
 
@@ -163,17 +161,13 @@ const App = () => {
 
 {/* ===== BALLOON SECTION ===== */}
 <section className="circle-section section-grey">
-
   <div className="circle-container reverse">
 
     <div className="circle-images">
-      <div className="circle-large">
-        <img src="/image/img8.jpeg" alt="Balloon Decor" />
-      </div>
-
-      <div className="circle-small">
-        <img src="/image/img6.jpeg" alt="Event Setup" />
-      </div>
+      {/* We can reuse the Carousel here. 
+          It will pull from the same images but keep the site looking active.
+      */}
+      <Carousel type="about" autoSlide={true} interval={4500} />
     </div>
 
     <div className="circle-text">
