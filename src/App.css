@@ -1705,18 +1705,40 @@ body:not(.no-js) .carousel.hero .carousel-slide {
   position: relative;
   min-height: 100vh;
   display: flex;
+  flex-direction: column; /* Changed to column to allow space for header + content */
   align-items: center;
   justify-content: center;
-  padding: 80px 20px;
-  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+  padding: 100px 20px; /* Increased top padding for a breathable, luxury feel */
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
               url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070') no-repeat center center/cover;
+  background-attachment: fixed; /* Optional: adds a parallax-like cinematic depth */
   color: #fff;
   text-align: center;
+  border-top: 2px solid rgba(230, 184, 0, 0.3); /* Subtle gold top-border frame */
 }
 
 .about-container {
-  max-width: 900px;
+  max-width: 1000px; /* Slightly wider to accommodate the grid we built */
   width: 100%;
+  margin: 0 auto;
+  z-index: 5; /* Ensures content stays above any background overlays */
+}
+
+/* Added specific styling for the golden H2 inside this section */
+.about-section h2.section-title {
+  color: #e6b800; 
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Fluid typography: gets bigger on larger screens */
+  margin-bottom: 0.5rem;
+  letter-spacing: 4px;
+}
+
+.about-section .title-underline {
+  width: 80px;
+  height: 3px;
+  background: #e6b800;
+  margin: 0 auto 40px;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(230, 184, 0, 0.4);
 }
 
 .enticing-para {
