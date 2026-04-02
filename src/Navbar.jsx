@@ -103,7 +103,7 @@ const Navbar = () => {
         onClick={toggleMobile}
       ></div>
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="nav-logo">Jojo Lux Events</div>
+      <div className="nav-logo">Jojo Bouncing Castles For Hire Nairobi</div>
       <div className={`hamburger ${mobileOpen ? "open" : ""}`} onClick={toggleMobile}>
         <FaBars />
       </div>

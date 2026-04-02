@@ -40,7 +40,7 @@ const CompanyPage = () => {
         <div className="title-underline"></div>
         
         <p className="enticing-para">
-          At JOJO Luxe Events, we don't just plan events; we curate moments that live forever. 
+          At Jojo Bouncing Castles For Hire Nairobi, we don't just plan events; we curate moments that live forever. 
           Born from a passion for flawless execution and aesthetic brilliance, our journey in 
           Nairobi has been defined by a relentless pursuit of excellence. From the first 
           conceptual sketch to the final standing ovation, we blend logistical precision 
