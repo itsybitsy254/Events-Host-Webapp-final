@@ -1824,3 +1824,256 @@ body:not(.no-js) .carousel.hero .carousel-slide {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* --- Gallery Section Base --- */
+.gallery-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  /* Dark Cinematic Background */
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+              url('https://images.unsplash.com/photo-1470753937643-efad93c239fa?q=80&w=2070') no-repeat center center/cover;
+  background-attachment: fixed; /* Parallax effect */
+  color: #ffffff;
+  text-align: center;
+}
+
+.gallery-container {
+  max-width: 1100px;
+  width: 100%;
+  z-index: 2;
+}
+
+/* --- Golden Heading Styles --- */
+.gallery-section .section-title {
+  color: #e6b800; /* Signature Gold */
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-section .title-underline {
+  width: 80px;
+  height: 3px;
+  background: #e6b800;
+  margin: 0 auto 30px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 12px rgba(230, 184, 0, 0.6);
+}
+
+.gallery-description {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  color: #a0a0a0;
+  font-style: italic;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* --- The Cinematic Grid --- */
+.gallery-grid {
+  display: grid;
+  /* Adjusts column count automatically based on screen width */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 10px;
+}
+
+/* --- Individual Gallery Item (The Frame) --- */
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4 / 3; /* Keeps all boxes consistent */
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03); /* Glass base */
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover State: The "Pop" Effect */
+.gallery-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #e6b800;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.placeholder-svg {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+/* --- Hover Overlay Content --- */
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Dark gradient to make text readable */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 10%, transparent 90%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 25px;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(10px);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.category-tag {
+  color: #e6b800;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.gallery-overlay h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+/* --- Entry Animation --- */
+.fade-up {
+  animation: galleryFadeUp 1s ease-out forwards;
+}
+
+@keyframes galleryFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Single column on small mobile */
+  }
+  
+  .gallery-section .section-title {
+    font-size: 2.2rem;
+  }
+}
+/* FAQ Section Layout */
+.faq-section.cinematic-bg {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+              url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2070') no-repeat center center/cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+.faq-container {
+  max-width: 850px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Golden Heading (Matching About/Gallery) */
+.faq-section .section-title {
+  color: #e6b800; /* Signature Gold */
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.faq-intro {
+  color: #ccc;
+  margin-bottom: 50px;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Glassmorphism FAQ Cards */
+.faq-glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  overflow: hidden;
+}
+
+.faq-glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #e6b800;
+  transform: translateY(-2px);
+}
+
+.faq-header {
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-header h4 {
+  margin: 0;
+  color: #e6b800; /* Question in Gold */
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.faq-toggle-icon {
+  font-size: 1.5rem;
+  color: #e6b800;
+  font-weight: 300;
+}
+
+/* Smooth Accordion Content */
+.faq-content {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 30px;
+  transition: all 0.4s ease;
+  color: #ddd;
+  line-height: 1.7;
+}
+
+.faq-content.open {
+  max-height: 200px; /* Adjust based on answer length */
+  opacity: 1;
+  padding-bottom: 25px;
+}
+
+.faq-glass-card.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #e6b800;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}

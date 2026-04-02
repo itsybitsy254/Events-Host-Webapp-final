@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 const faqs = [
@@ -9,16 +9,46 @@ const faqs = [
   { question: "Do you offer catering services?", answer: "Yes, we collaborate with trusted catering partners to provide a variety of menu options, including dietary-specific choices, to suit your event's theme and guests' preferences." },
 ];
 
-const FAQPage = () => (
-  <section className="faq-section fade-up" id="faq-page">
-    <h2 className="fade-up">Frequently Asked Questions</h2>
-    {faqs.map((faq, index) => (
-      <div key={index} className="faq-item stagger-child">
-        <h4>{faq.question}</h4>
-        <p>{faq.answer}</p>
+const FAQPage = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  return (
+    <section className="faq-section cinematic-bg" id="faq-page">
+      <div className="faq-container fade-up">
+        <h2 className="section-title">Frequently Asked Questions</h2>
+        <div className="title-underline"></div>
+        
+        <p className="faq-intro">
+          Everything you need to know about planning your next milestone with JOJO Luxe.
+        </p>
+
+        <div className="faq-list">
+          {faqs.map((faq, index) => (
+            <div 
+              key={index} 
+              className={`faq-glass-card ${activeIndex === index ? "active" : ""}`}
+              onClick={() => toggleFAQ(index)}
+            >
+              <div className="faq-header">
+                <h4>{faq.question}</h4>
+                <span className="faq-toggle-icon">
+                  {activeIndex === index ? "−" : "+"}
+                </span>
+              </div>
+              
+              <div className={`faq-content ${activeIndex === index ? "open" : ""}`}>
+                <p>{faq.answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </section>
-);
+    </section>
+  );
+};
 
 export default FAQPage;
