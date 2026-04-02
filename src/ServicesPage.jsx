@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./App.css";
 
-// helper that turns text into url-friendly slug
 const slug = (text) =>
   text
     .toLowerCase()
@@ -10,103 +9,77 @@ const slug = (text) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
-// top‑level services with nested sub‑services where applicable
-const services = [
+const companySections = [
   {
-    title: "Kids Entertainment",
-    sub: [
-      "Bouncing Castles",
-      "Trampolines",
-      "Water Slides",
-      "Inflatable Pools",
-      "Climbing Towers",
-      "Dry Slides",
-    ],
+    title: "Our Story",
+    sub: ["Founding Journey", "Milestones", "Our Heritage"],
   },
   {
-    title: "Activities",
-    sub: [
-      "Face Painting",
-      "Clowns",
-      "Puppet Show",
-      "Magic Tricks",
-    ],
+    title: "Mission & Vision",
+    sub: ["Core Values", "Our Commitment", "Sustainability Goals"],
   },
   {
-    title: "Tents & Chairs for Hire",
-    sub: [
-      "Bar Furniture Hire",
-      "Tents for Hire",
-      "Tables and Chairs Hire",
-    ],
+    title: "Why Choose Us",
+    sub: ["Expert Logistics", "Vendor Network", "Safety Standards", "Client Testimonials"],
   },
   {
-    title: "Additional Services",
-    sub: [
-      "Rustic Furniture Hire",
-      "Picnic Setup Services",
-      "Themed Party Nairobi",
-      "Balloons Decoration",
-      "Mobile/Portable Toilets",
-      "Wedding Planning Services",
-      "Baby Shower Planning",
-      "Graduation Parties Services",
-      "Adult Parties Planning",
-    ],
+    title: "Our Team",
+    sub: ["Leadership", "Event Coordinators", "Technical Support", "Careers"],
   },
 ];
 
-const ServicesPage = () => {
+const CompanyPage = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
-  const toggle = (i) => {
-    setOpenIndex(openIndex === i ? null : i);
-  };
+  const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className="services-section fade-up" id="services-page">
-      <h2 className="fade-up">Our Services</h2>
-      <div className="services-list">
-        {services.map((service, idx) => (
-          <div
-            key={idx}
-            className={`service-dropdown ${openIndex === idx ? "open" : ""}`}
-          >
-            <div
-              className="dropdown-toggle"
-              onClick={() => toggle(idx)}
-            >
-              {service.title}
-            </div>
+    <section className="about-section" id="company-page">
+      <div className="about-container fade-up">
+        <h2 className="section-title">About Our Company</h2>
+        <div className="title-underline"></div>
+        
+        <p className="enticing-para">
+          At JOJO Luxe Events, we don't just plan events; we curate moments that live forever. 
+          Born from a passion for flawless execution and aesthetic brilliance, our journey in 
+          Nairobi has been defined by a relentless pursuit of excellence. From the first 
+          conceptual sketch to the final standing ovation, we blend logistical precision 
+          with creative soul to ensure your milestone is nothing short of legendary.
+        </p>
 
-            {openIndex === idx && (
-              <ul className="dropdown-menu">
-                <li>
-                  <NavLink
-                    to={`/services/${slug(service.title)}`}
-                    className="service-link"
-                  >
-                    {service.title} Overview
-                  </NavLink>
-                </li>
-                {service.sub &&
-                  service.sub.map((sub, j) => (
+        <div className="company-grid">
+          {companySections.map((section, idx) => (
+            <div
+              key={idx}
+              className={`company-card ${openIndex === idx ? "expanded" : ""}`}
+            >
+              <div className="card-header" onClick={() => toggle(idx)}>
+                <h3>{section.title}</h3>
+                <span className="toggle-icon">{openIndex === idx ? "−" : "+"}</span>
+              </div>
+
+              {openIndex === idx && (
+                <ul className="card-dropdown">
+                  <li>
+                    <NavLink to={`/about/${slug(section.title)}`} className="nav-link">
+                      {section.title} Overview
+                    </NavLink>
+                  </li>
+                  {section.sub.map((sub, j) => (
                     <li key={j}>
-                      <NavLink
-                        to={`/services/${slug(service.title)}/${slug(sub)}`}
-                        className="service-link"
-                      >
+                      <NavLink to={`/about/${slug(section.title)}/${slug(sub)}`} className="nav-link">
                         {sub}
                       </NavLink>
                     </li>
                   ))}
-              </ul>
-            )}
-          </div>
-        ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default ServicesPage;
+export default CompanyPage;

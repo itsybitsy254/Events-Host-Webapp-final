@@ -1597,3 +1597,208 @@ body:not(.no-js) .carousel.hero .carousel-slide {
     left: -20px;
   }
 }
+/* Container Background */
+.contact-section {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070') no-repeat center center/cover;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+/* Glassmorphism Card Style */
+.contact-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.title-underline {
+  width: 60px;
+  height: 3px;
+  background: #e6b800; /* Gold accent */
+  margin: 0 auto 30px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  color: white;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #e6b800;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.contact-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #e6b800;
+}
+
+.card-action {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+.contact-card:hover .card-action {
+  opacity: 1;
+  color: #e6b800;
+}
+
+/* Smooth Fade-in Animation */
+.fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Base Section Styling */
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+              url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.enticing-para {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 50px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+/* Grid for Company Cards */
+.company-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .company-grid { grid-template-columns: 1fr; }
+}
+
+/* Card Styling */
+.company-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.company-card:hover {
+  border-color: #e6b800;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.card-header {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.toggle-icon {
+  font-size: 1.5rem;
+  color: #e6b800;
+}
+
+/* Dropdown Links */
+.card-dropdown {
+  list-style: none;
+  padding: 0 0 20px 0;
+  margin: 0;
+  animation: fadeIn 0.4s ease;
+}
+
+.card-dropdown li {
+  padding: 8px 0;
+}
+
+.nav-link {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #e6b800;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

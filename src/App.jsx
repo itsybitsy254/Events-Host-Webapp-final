@@ -255,7 +255,7 @@ const App = () => {
 
             <footer className="footer fade-up" id="contact">
               <div className="footer-column fade-up">
-                <h3>Jojo Lux Events</h3>
+                <h3>Jojo Bouncing Castles For Hire Nairobi</h3>
                 <p>We plan and host elegant events for baby showers, graduations, themed parties, kids celebrations, and corporate functions. Every detail is carefully curated to ensure unforgettable experiences.</p>
               </div>
               <div className="footer-column fade-up">
