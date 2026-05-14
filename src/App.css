@@ -2077,3 +2077,592 @@ body:not(.no-js) .carousel.hero .carousel-slide {
   border-color: #e6b800;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
+/* =========================================
+   LUXURY GLASSMORPHISM TENTS CATALOGUE
+   ========================================= */
+
+/* 1. Base Section & Luxurious Gradient Background (No Image) */
+.glass-tents-section {
+  position: relative;
+  padding: 100px 20px;
+  /* Deep, rich radial gradient for a luxurious feel */
+  background: radial-gradient(circle at 50% 50%, #2c3e50 0%, #1a1a1a 100%);
+  overflow: hidden; /* Keeps animated blobs inside */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean, modern font */
+  color: #fff;
+}
+
+/* 2. Content Container */
+.glass-content-container {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  z-index: 10; /* Sits above the background blobs */
+}
+
+/* 3. Background Blobs (Essential for the "Glass" effect to blur over) */
+.abstract-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.2;
+  z-index: 1;
+  animation: blob-float 20s infinite alternate;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: #3498db; /* Deep Blue */
+  top: -100px;
+  left: -100px;
+}
+
+.blob-2 {
+  width: 600px;
+  height: 600px;
+  background: #9b59b6; /* Rich Purple */
+  bottom: -150px;
+  right: -100px;
+  animation-delay: -10s;
+}
+
+@keyframes blob-float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(100px, 50px) scale(1.1); }
+}
+
+/* 4. Header Styling */
+.catalog-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.premium-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #f1c40f; /* Gold accent */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.catalog-title {
+  font-size: 3.5rem;
+  font-weight: 200; /* Light weight for luxury feel */
+  margin: 0 0 20px 0;
+  letter-spacing: -1px;
+}
+
+.catalog-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 5. The Grid */
+.glass-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  padding-bottom: 60px;
+}
+
+/* 6. The Glass Card - CORE EFFECT */
+.glass-card {
+  /* Translucent white background */
+  background: rgba(255, 255, 255, 0.05);
+  /* The frosted glass blur effect */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  /* Extremely thin, light border (like a glass edge) */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  
+  /* Soft shadow for depth */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Brighten border on hover */
+}
+
+/* 7. Card Image & Glossy Overlay */
+.card-image-wrapper {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.glass-card:hover .card-img {
+  transform: scale(1.1);
+}
+
+/* Adds a static "glossy" light streak over the image */
+.card-gloss-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+/* 8. Card Content */
+.card-content {
+  padding: 30px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tent-tier {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.tent-name {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+  color: #fff;
+}
+
+.tent-details {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: auto; /* Pushes buttons to the bottom */
+  padding-bottom: 25px;
+}
+
+.tent-details strong {
+  color: #fff;
+}
+
+/* 9. Glass Buttons */
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.glass-tents-section button {
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #1a1a1a;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #f1c40f; /* Gold on hover */
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* 10. Footer */
+.catalog-footer {
+  margin-top: 40px;
+}
+
+.service-glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-contact {
+  background: transparent;
+  color: #f1c40f;
+  border: 1px solid #f1c40f;
+}
+
+.btn-contact:hover {
+  background: #f1c40f;
+  color: #1a1a1a;
+}
+/* --- LUXURY INDIGO GLASS THEME --- */
+
+.glass-mascots-section {
+  position: relative;
+  padding: 80px 20px;
+  background: #0f0f1b; /* Deep fallback color */
+  background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0f0f1b 100%);
+  overflow: hidden;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.mascot-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.mascot-blob-1 {
+  width: 400px;
+  height: 400px;
+  background: #ff0080;
+  top: -50px;
+  right: -50px;
+}
+
+.mascot-blob-2 {
+  width: 500px;
+  height: 500px;
+  background: #00dfd8;
+  bottom: -100px;
+  left: -100px;
+}
+
+.glass-content-container {
+  position: relative;
+  z-index: 2; /* Ensures content is above blobs */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.vibrant-tag {
+  color: #00dfd8;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.catalog-title {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+.glass-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+/* THE GLASS CARD */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  border: 1px solid rgba(0, 223, 216, 0.4);
+}
+
+.card-image-wrapper {
+  position: relative;
+  height: 250px;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-gloss-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.mascot-badge {
+  position: absolute;
+  top: 15px; left: 15px;
+  background: rgba(0, 223, 216, 0.2);
+  color: #00dfd8;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  backdrop-filter: blur(5px);
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.btn-mascot-action {
+  background: linear-gradient(90deg, #00dfd8, #0078ff);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+/* =========================================
+   CHAIRS GLASSMORPHISM - EMERALD THEME
+   ========================================= */
+
+.glass-chairs-section {
+  position: relative;
+  padding: 100px 20px;
+  /* Deep Forest Emerald to Charcoal Slate */
+  background: radial-gradient(circle at 50% 50%, #0a2e2a 0%, #050f0e 100%);
+  overflow: hidden;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Emerald/Mint Blobs */
+.chair-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: 1;
+  animation: chair-float 18s infinite alternate ease-in-out;
+}
+
+.chair-blob-1 {
+  width: 500px;
+  height: 500px;
+  background: #2ecc71; /* Emerald Green */
+  top: -10%;
+  left: -5%;
+}
+
+.chair-blob-2 {
+  width: 400px;
+  height: 400px;
+  background: #95a5a6; /* Slate Grey */
+  bottom: 0%;
+  right: -5%;
+  animation-delay: -4s;
+}
+
+@keyframes chair-float {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, -40px); }
+}
+
+.emerald-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #2ecc71;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.chair-material-tag {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  color: #fff;
+}
+
+.chair-series {
+  display: block;
+  font-size: 0.7rem;
+  color: #2ecc71;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.btn-chair-action {
+  background: #2ecc71;
+  color: #050f0e;
+  border: none;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-chair-action:hover {
+  background: #27ae60;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+}
+
+/* Ensure the glass card in this section has a slight green tint to the border on hover */
+.chair-card:hover {
+  border: 1px solid rgba(46, 204, 113, 0.4);
+}
+/* =========================================
+   SOUNDS GLASSMORPHISM - AMBER THEME
+   ========================================= */
+
+.glass-sounds-section {
+  position: relative;
+  padding: 100px 20px;
+  /* Deep Obsidian to Burnt Amber */
+  background: radial-gradient(circle at 50% 50%, #1c1c1c 0%, #0a0a0a 100%);
+  overflow: hidden;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Audio Energy Blobs */
+.sound-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.2;
+  z-index: 1;
+  animation: audio-pulse 12s infinite alternate ease-in-out;
+}
+
+.sound-blob-1 {
+  width: 450px;
+  height: 450px;
+  background: #f39c12; /* Warm Amber */
+  top: 5%;
+  right: -5%;
+}
+
+.sound-blob-2 {
+  width: 500px;
+  height: 500px;
+  background: #d35400; /* Burnt Orange */
+  bottom: 10%;
+  left: -10%;
+  animation-delay: -6s;
+}
+
+@keyframes audio-pulse {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.15; }
+  100% { transform: scale(1.2) translate(30px, -20px); opacity: 0.25; }
+}
+
+.audio-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #f39c12;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.sound-specs-tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(243, 156, 18, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(243, 156, 18, 0.3);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #f39c12;
+}
+
+.sound-tier {
+  display: block;
+  font-size: 0.75rem;
+  color: #f39c12;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.btn-sound-action {
+  background: #f39c12;
+  color: #000;
+  border: none;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-sound-action:hover {
+  background: #e67e22;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(243, 156, 18, 0.5);
+}
+
+/* Special hover effect for sound cards to mimic audio vibrations */
+.sound-card:hover {
+  border: 1px solid rgba(243, 156, 18, 0.5);
+  box-shadow: 0 10px 40px rgba(243, 156, 18, 0.1);
+}
